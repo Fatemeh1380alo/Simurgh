@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEAC3: The Anti-War Crypto Movement</title>
+    <title>SYMURGH: The Anti-War Crypto Movement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -190,7 +190,7 @@
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpg'); /* hero.jpg */ 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Hero.jpg'); /* Hero.jpg */
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -234,18 +234,6 @@
             font-size: 1.5em;
             margin-bottom: 0;
             font-weight: 700;
-        }
-
-        /* Section Image Placeholder */
-        .section-image {
-            width: 100%;
-            max-width: 800px; /* Adjust as needed */
-            height: 350px; /* Fixed height for consistency */
-            background-color: #333; /* Placeholder background */
-            margin: 40px auto;
-            display: block;
-            border-radius: 8px;
-            object-fit: cover; /* Ensures image covers the area nicely */
         }
 
         /* About Section */
@@ -296,6 +284,44 @@
             margin-bottom: 0;
         }
 
+        /* Added/Modified for image upload */
+        .image-upload-section {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .image-upload-section label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: var(--color-sky-blue);
+            font-weight: 600;
+        }
+
+        .image-upload-section input[type="file"] {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            border: 1px solid var(--color-medium-gray);
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: var(--color-white);
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .image-upload-section .image-preview {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: none; /* Hidden by default */
+            max-height: 400px;
+            object-fit: contain;
+        }
+        /* End Added/Modified for image upload */
 
         /* Manifesto Section */
         .manifesto-section {
@@ -397,7 +423,7 @@
         }
 
 
-        /* What Makes PEAC3 Different Section */
+        /* What Makes SYMURGH Different Section */
         .different-section {
             background-color: var(--color-dark-charcoal);
             padding-top: 100px;
@@ -550,32 +576,6 @@
             transform: translateY(-5px);
         }
 
-        /* Disclaimer Section */
-        .disclaimer-section {
-            background-color: #0d0d0d; /* Slightly darker than dark-charcoal for footer distinction */
-            color: var(--color-medium-gray);
-            font-size: 0.9em;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .disclaimer-section .container {
-            max-width: 800px;
-        }
-
-        .disclaimer-section h3 {
-            color: var(--color-white);
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        .disclaimer-section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
 
         /* Footer */
         .footer {
@@ -643,10 +643,6 @@
                 height: 35px;
                 margin: 0 10px;
             }
-
-            .section-image {
-                height: 250px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -669,10 +665,6 @@
             .nav-menu ul li {
                 margin: 5px 10px;
             }
-
-            .section-image {
-                height: 180px;
-            }
         }
     </style>
 </head>
@@ -680,12 +672,12 @@
 
     <header class="header">
         <div class="container">
-            <div class="logo">PEAC3</div>
+            <div class="logo">SYMURGH</div>
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#manifesto">Manifesto</a></li>
-                    <li><a href="#different">Why PEAC3?</a></li>
+                    <li><a href="#different">Why SYMURGH?</a></li>
                     <li><a href="#tokenomics">Tokenomics</a></li>
                     <li><a href="#join">Join</a></li>
                 </ul>
@@ -705,156 +697,147 @@
     <section id="about" class="about-section section-padding">
         <div class="container">
             <h2>The First Anti-War Crypto Movement</h2>
-            <img src="about1.jpg" alt="About PEAC3" class="section-image">
-            <h3>Born from War, Built on Blockchain</h3>
-            <p>On <strong>[Date, e.g., 2024-04-14]</strong>, explosions rocked my city. Just 100 meters from my home, a building collapsed - with neighbors inside. That day, as an Iranian developer, I realized: while politicians send missiles, we can send messages.</p>
+            <h3>Born from Myth. Built for Peace. Powered by Chain.</h3>
+            <p>In Persian mythology, <strong>Simurgh</strong> is a majestic, immortal bird — the healer of nations and the awakener of wisdom. When the world falls into chaos, Simurgh rises from the ashes to guide humanity toward unity.</p>
+            <p>Today, that myth takes flight on the blockchain.</p>
+            <p>As an Iranian — heir to one of the world’s oldest civilizations and the Persian Empire that once united half of Asia — I’ve seen enough to say this with certainty: <strong>War is a lie.</strong></p>
+            <p>It kills the innocent. It forces good people into impossible choices. Whether in Iran, Ukraine, or Palestine — it leaves only grief.</p>
+            <p>That’s why SYMURGH was born.<br>
+            Not just as a token — but as a **movement**.<br>
+            A decentralized cry for **peace without borders**, for a future without flags, for resistance without violence.</p>
+            <p>We don’t need more weapons.<br>We need **a new world**.<br>And we’ll build it — **together**.</p>
 
+            <div class="image-upload-section">
+                <label for="aboutImageUpload">یک تصویر برای بخش "درباره ما" انتخاب کنید:</label>
+                <input type="file" id="aboutImageUpload" accept="image/*">
+                <img id="aboutImagePreview" class="image-preview" src="#" alt="پیش‌نمایش تصویر درباره ما">
+            </div>
             <h3>From Cyrus to Crypto</h3>
-            <p>In 539 BC, Cyrus the Great established history's first human rights charter in Persia. Today, from that same land, we're writing a new declaration - not on clay, but on the immutable blockchain.</p>
-
-            <h3>Our Global Mission</h3>
-            <p>PEAC3 is crypto's first true anti-war movement. We stand for:</p>
-            <ul>
-                <li>The **Ukrainian child** hiding in bomb shelters</li>
-                <li>The **Israeli soldier** questioning orders</li>
-                <li>Every civilian caught between borders and bullets</li>
-            </ul>
-
-            <h3>This Is Not an Investment</h3>
-            <p>$PEAC3 is a digital artifact of resistance. Each token represents:</p>
-            <ul>
-                <li>✓ A vote against all war</li>
-                <li>✓ A voice for the voiceless</li>
-                <li>✓ A permanent record of your stand</li>
-            </ul>
-
-            <h3>Why Blockchain?</h3>
-            <p>Because peace deserves:</p>
-            <ul>
-                <li>✔ Immortality (on-chain forever)</li>
-                <li>✔ Decentralization (no government can censor it)</li>
-                <li>✔ Global unity (beyond flags and religions)</li>
-            </ul>
-
-            <p class="quote">This isn't about profits - it's about proof. Proof that when humanity unites on-chain, we're stronger than any army.</p>
-            <p class="quote-author">"The true measure of Web3 isn't market caps - it's lives saved."</p>
+            <p>In 539 BC, <strong>Cyrus the Great</strong> issued the world’s first human rights charter in Persia. He called for religious freedom, equality, and respect for all peoples — values buried under centuries of conflict.</p>
+            <p>Today, from the same land, a new declaration rises.<br>
+            Not written on stone — but sealed forever on-chain.</p>
+            <p>Just as Cyrus etched freedom into history, **SYMURGH** etches peace into the blockchain:<br>
+            – Uncensorable<br>
+            – Immutable<br>
+            – Borderless</p>
+            <p>This is not a pump.<br>This is not a trend.<br>This is **Web3’s stand for peace**.</p>
         </div>
     </section>
 
     <section id="manifesto" class="manifesto-section section-padding">
         <div class="container">
-            <h2>PEAC3 MANIFESTO</h2>
-            <img src="manifesto.jpg" alt="PEAC3 Manifesto" class="section-image">
-            <h3>"When Blockchain Meets Humanity"</h3>
-            <p class="preamble-text">We, the people of crypto, declare that war is obsolete.<br>From the ruins of conflict, we build a new truth: <strong>blockchain is humanity’s immune system against violence</strong>.</p>
+            <h2>SYMURGH MANIFESTO</h2>
 
+            <div class="image-upload-section">
+                <label for="manifestoImageUpload">یک تصویر برای بخش "مانیفست" انتخاب کنید:</label>
+                <input type="file" id="manifestoImageUpload" accept="image/*">
+                <img id="manifestoImagePreview" class="image-preview" src="#" alt="پیش‌نمایش تصویر مانیفست">
+            </div>
+            <p class="preamble-text">We believe in a world where **peace is not just an ideal, but a blockchain-secured reality.**</p>
             <div class="core-principles">
-                <h3>Core Principles</h3>
-
                 <div class="principle-item">
-                    <h4>1. War Belongs in Museums</h4>
-                    <p>The blockchain is our permanent record:</p>
-                    <ul>
-                        <li>✓ Every war crime</li>
-                        <li>✓ Every life lost</li>
-                        <li>✓ Every act of resistance</li>
-                    </ul>
-                    <p>$PEAC3 tokens are digital memorials. Hold them to say: *"Never again."*</p>
+                    <h4>1. Decentralized Peace</h4>
+                    <p>Peace should not be dictated by governments or corporations. SYMURGH embodies true decentralization, empowering individuals to collectively build a peaceful future. No central authority, no single point of failure.</p>
                 </div>
-
                 <div class="principle-item">
-                    <h4>2. Your Wallet = Your Vote</h4>
-                    <ul>
-                        <li>1 $PEAC3 = 1 vote against all wars</li>
-                        <li>No governments. No borders. Just code-enforced solidarity.</li>
-                    </ul>
+                    <h4>2. Transparency & Immutability</h4>
+                    <p>Every transaction, every action within the SYMURGH ecosystem is transparent and immutable on the blockchain. This ensures trust, prevents corruption, and holds everyone accountable for their contributions to peace.</p>
                 </div>
-
                 <div class="principle-item">
-                    <h4>3. We Take Sides – With Civilians</h4>
-                    <p>Not Israel. Not Iran. Not Russia. Not Ukraine.</p>
-                    <p><strong>We side with:</strong></p>
+                    <h4>3. Education & Awareness</h4>
+                    <p>We commit to using our platform and resources to educate the world about the true costs of war and the benefits of global unity. Through art, media, and community initiatives, we will spread a message of hope.</p>
+                </div>
+                <div class="principle-item">
+                    <h4>4. Global Solidarity</h4>
+                    <p>War knows no borders, and neither should peace. SYMURGH fosters a global community united by the shared goal of ending conflict. We stand with all victims of war, regardless of nationality or belief.</p>
                     <ul>
-                        <li>→ The child hiding in basements</li>
-                        <li>→ The soldier forced to fight</li>
-                        <li>→ The doctor patching wounds</li>
+                        <li>Support for war-torn regions.</li>
+                        <li>Humanitarian aid initiatives.</li>
+                        <li>Global peace advocacy.</li>
+                        <li>Creating safe spaces for dialogue.</li>
                     </ul>
                 </div>
-
                 <div class="principle-item">
-                    <h4>4. Technology’s Highest Purpose</h4>
-                    <p>Web3 was meant to free us. We repurpose it:</p>
-                    <ul>
-                        <li>✦ Bombs → Bytes</li>
-                        <li>✦ Borders → Blockchains</li>
-                        <li>✦ Propaganda → Proof-of-Peace</li>
-                    </ul>
+                    <h4>5. Empowerment Through Crypto</h4>
+                    <p>By leveraging blockchain technology, we provide a new pathway for individuals to contribute to peace. Our token facilitates direct, secure, and transparent funding for anti-war initiatives and humanitarian efforts.</p>
                 </div>
-
                 <div class="principle-item">
-                    <h4>5. A Token Without Value</h4>
-                    <p>The day $PEAC3 hits $0 is our victory – because war has ended.</p>
+                    <h4>6. Art & Culture as Resistance</h4>
+                    <p>We believe in the power of art, music, and culture to transcend boundaries and inspire change. SYMURGH will support artists and creators who use their craft to promote peace and challenge the narratives of conflict.</p>
                 </div>
             </div>
-
             <div class="manifesto-cta">
-                <h3>Call to Action</h3>
-                <p>Sign this manifesto by:</p>
+                <h3>This is not just a cryptocurrency; it's a commitment.</h3>
                 <ul>
-                    <li>1. <strong>Holding $PEAC3</strong> (on-chain record)</li>
-                    <li>2. <strong>Sharing this text</strong> (#PEAC3Manifesto)</li>
-                    <li>3. <strong>Rejecting war profiteers</strong></li>
+                    <li>It's a digital protest against the machinery of war.</li>
+                    <li>It's an investment in a future where empathy triumphs over ideology.</li>
+                    <li>It's the quiet revolution of consciousness, secured by code.</li>
                 </ul>
-                <p class="quote-author">"First they ignore us. Then they laugh at us. Then we outlive them."</p>
+                <p class="quote-author">— The SYMURGH Community</p>
             </div>
-
-            <div class="timestamp">
-                <p><strong>Timestamped & Immutable</strong></p>
-                <p>This manifesto was permanently recorded on <strong>[Blockchain Name]</strong> at block <strong>[#]</strong> on <strong>[Date]</strong>.</p>
-                <p><a href="[TRANSACTION LINK]" target="_blank" class="button-link">VIEW ON BLOCKCHAIN</a></p>
-            </div>
+            <p class="timestamp">Manifesto last updated: <a href="#timestamp-proof">June 18, 2025</a></p>
         </div>
     </section>
 
     <section id="different" class="different-section section-padding">
         <div class="container">
-            <h2>What Makes PEAC3 Different?</h2>
-            <img src="why.jpg" alt="What Makes PEAC3 Different" class="section-image">
+            <h2>What Makes SYMURGH Different?</h2>
+            <p>SYMURGH stands apart from other crypto projects. We're not just another token; we're a **movement with a purpose**.</p>
+            <div class="image-upload-section">
+                <label for="differentImageUpload">یک تصویر برای بخش "چرا سیمرغ؟" انتخاب کنید:</label>
+                <input type="file" id="differentImageUpload" accept="image/*">
+                <img id="differentImagePreview" class="image-preview" src="#" alt="پیش‌نمایش تصویر چرا سیمرغ؟">
+            </div>
             <ul>
-                <li>✅ Launched from inside a real war zone</li>
-                <li>✅ 100% community</li>
-                <li>✅ No presale, no VC</li>
-                <li>✅ Just buy & hold to send a message</li>
+                <li>✅ **Anti-War at Core:** Our primary mission is to fight against war and promote global peace. Every action, every decision, revolves around this core value.</li>
+                <li>✅ **Community-Driven:** We are building a truly decentralized movement where the community holds the power and shapes the future.</li>
+                <li>✅ **Real-World Impact:** We aim to support humanitarian aid, peace education, and advocacy efforts in war-torn regions, making a tangible difference.</li>
+                <li>✅ **Beyond Speculation:** While we are a crypto project, our focus is not solely on financial gains. We prioritize our mission over short-term market fluctuations.</li>
+                <li>✅ **Transparency:** All operations, funds, and initiatives will be transparently recorded on the blockchain, fostering trust and accountability.</li>
             </ul>
         </div>
     </section>
 
     <section id="tokenomics" class="tokenomics-section section-padding">
         <div class="container">
-            <h2>PEAC3 Tokenomics: A Symbol of Unity</h2>
-            <img src="token.jpg" alt="PEAC3 Tokenomics" class="section-image">
-            <h3 class="subtitle">No VCs. No Private Sales. Just Pure Peace.</h3>
-
+            <h2>TOKENOMICS</h2>
+            <p class="subtitle">A structure built for sustainability and impact.</p>
+            <div class="image-upload-section">
+                <label for="tokenomicsImageUpload">یک تصویر برای بخش "توکنومیکس" انتخاب کنید:</label>
+                <input type="file" id="tokenomicsImageUpload" accept="image/*">
+                <img id="tokenomicsImagePreview" class="image-preview" src="#" alt="پیش‌نمایش تصویر توکنومیکس">
+            </div>
             <div class="tokenomics-details">
                 <div class="detail-item">
-                    <h4>1. Token Details:</h4>
-                    <p><strong>Token Name:</strong> Peace Token</p>
-                    <p><strong>Token Symbol:</strong> $PEAC3</p>
-                    <p><strong>Blockchain:</strong> Solana</p>
-                    <p><strong>Standard:</strong> SPL Token</p>
+                    <h4>Total Supply</h4>
+                    <p>1,000,000,000,000 SYMURGH Tokens</p>
+                    <p>This fixed supply ensures scarcity and long-term value for the movement.</p>
                 </div>
-
                 <div class="detail-item">
-                    <h4>2. Supply & Distribution:</h4>
-                    <p><strong>Total Supply:</strong> 1,000,000,000 $PEAC3 (One Billion PEAC3)</p>
-                    <p><strong>Fair Launch on Four.meme:</strong> PEAC3 is launched on **Four.meme** using a **Bonding Curve mechanism**, ensuring a truly fair and community-driven start for everyone.</p>
-                    <p><strong>100% Liquidity Burned:</strong> All initial liquidity generated will be permanently burned, safeguarding community assets and preventing rug pulls.</p>
+                    <h4>Fair Launch</h4>
+                    <p>No pre-sale, no team tokens, no private allocations. SYMURGH will be launched fairly, allowing everyone equal opportunity to join the movement.</p>
                 </div>
-
                 <div class="detail-item">
-                    <h4>3. Smart Contract & Verification:</h4>
-                    <p><strong>Contract Address:</strong> <code>[Your Solana Smart Contract Address Here - Once deployed]</code></p>
-                    <p><a href="[Your Solscan Link]" target="_blank" class="button-link">Verify on Solscan</a></p>
+                    <h4>Liquidity Locked</h4>
+                    <p>A significant portion of the initial liquidity will be locked indefinitely, preventing rug pulls and ensuring stability.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Charity & Development Wallet</h4>
+                    <p>A small percentage of each transaction will be allocated to a dedicated wallet for humanitarian aid, peace initiatives, and future development of the SYMURGH ecosystem.</p>
+                    <p><strong>Example Allocation:</strong></p>
+                    <ul>
+                        <li>2% to Humanitarian Aid</li>
+                        <li>1% to Peace Education & Advocacy</li>
+                        <li>1% to Ecosystem Development</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <h4>Anti-Whale Mechanism (Optional, if applicable)</h4>
+                    <p>To prevent market manipulation, a maximum transaction limit might be implemented. (Details to be announced).</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Burn Mechanism (Optional, if applicable)</h4>
+                    <p>A portion of transaction fees may be burned over time, gradually reducing supply and increasing scarcity. (Details to be announced).</p>
                 </div>
             </div>
         </div>
@@ -862,36 +845,66 @@
 
     <section id="join" class="join-section section-padding">
         <div class="container">
-            <h2>Join the Movement</h2>
-            <img src="join.jpg" alt="Join the Movement" class="section-image">
-            <p>You don’t need to buy $10K. Even $5 shows you believe in peace.</p>
-            <p>Post the memes. Share the vision. HODL for humanity.</p>
-            
+            <h2>JOIN THE MOVEMENT</h2>
+            <p>Be a part of something bigger. Join SYMURGH and let's build a future of peace, together.</p>
+
+            <div class="image-upload-section">
+                <label for="joinImageUpload">یک تصویر برای بخش "به ما بپیوندید" انتخاب کنید:</label>
+                <input type="file" id="joinImageUpload" accept="image/*">
+                <img id="joinImagePreview" class="image-preview" src="#" alt="پیش‌نمایش تصویر به ما بپیوندید">
+            </div>
             <div class="cta-buttons">
-                <a href="[Your Discord/Telegram/X Community Link]" target="_blank" class="button-main">Join Our Community</a>
-                <a href="[Your pump.fun Buy Link]" target="_blank" class="button-main">Buy $PEAC3 on Four.meme</a>
+                <a href="#" class="button-main">Buy SYMURGH (Link Soon)</a>
+                <a href="#" class="button-main">Join Telegram</a>
             </div>
 
+            <p>Follow us on social media for updates and community discussions:</p>
             <div class="social-icons">
-                <a href="[Your X/Twitter Link]" target="_blank"><img src="placeholder_x.png" alt="X (Twitter)"></a>
-                <a href="[Your Telegram Link]" target="_blank"><img src="placeholder_telegram.png" alt="Telegram"></a>
-                </div>
-        </div>
-    </section>
+                <a href="#"><img src="telegram.png" alt="Telegram"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="discord.png" alt="Discord"></a>
+            </div>
 
-    <section id="disclaimer" class="disclaimer-section section-padding">
-        <div class="container">
-            <h3>Disclaimer</h3>
-            <p>Please be aware that cryptocurrencies are highly volatile and speculative. $PEAC3 is not intended as an investment vehicle or for profit. It is a community-driven initiative for awareness and symbolic resistance against war. We make no promises or guarantees regarding the future value or performance of $PEAC3. Participation is solely for supporting the cause of peace and does not imply financial returns. Always conduct your own research and understand the risks before engaging with any cryptocurrency.</p>
-            <p>By participating in the PEAC3 movement, you acknowledge and accept these terms. This content is for informational purposes only and does not constitute financial advice.</p>
+            <a href="#" class="button-link">Read Whitepaper (Coming Soon)</a>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 PEAC3. All rights reserved.</p>
+            <p>&copy; 2025 SYMURGH. All rights reserved. For Peace. For Humanity.</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript for handling image previews
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageUploads = [
+                { inputId: 'aboutImageUpload', previewId: 'aboutImagePreview' },
+                { inputId: 'manifestoImageUpload', previewId: 'manifestoImagePreview' },
+                { inputId: 'differentImageUpload', previewId: 'differentImagePreview' },
+                { inputId: 'tokenomicsImageUpload', previewId: 'tokenomicsImagePreview' },
+                { inputId: 'joinImageUpload', previewId: 'joinImagePreview' }
+            ];
+
+            imageUploads.forEach(({ inputId, previewId }) => {
+                const inputElement = document.getElementById(inputId);
+                const previewElement = document.getElementById(previewId);
+
+                if (inputElement && previewElement) {
+                    inputElement.addEventListener('change', function(event) {
+                        const [file] = event.target.files;
+                        if (file) {
+                            previewElement.src = URL.createObjectURL(file);
+                            previewElement.style.display = 'block'; // Show the image
+                        } else {
+                            previewElement.style.display = 'none'; // Hide if no file selected
+                            previewElement.src = '#'; // Clear the source
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
