@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYMURGH: The Anti-War Crypto Movement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Styles */
+        :root {
+            --color-dark-charcoal: #1A1A1A;
+            --color-white: #FFFFFF;
+            --color-sky-blue: #87CEEB;
+            --color-subtle-gold: #DAA520; /* More yellow-gold, adjusted for better contrast */
+            --color-light-gray: #F0F0F0;
+            --color-medium-gray: #B0B0B0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* scroll-behavior: smooth; // This would require JavaScript if not natively supported by browser for anchor links */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-white); /* Default text color for dark background */
+            background-color: var(--color-dark-charcoal);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-sky-blue); /* Section titles in accent color */
+        }
+
+        h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--color-sky-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-subtle-gold);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px; /* Adjust as needed for specific list styles */
+        }
+
+        /* Specific list styles for checkmarks and arrows */
+        .about-section ul li::before, .manifesto-section ul li::before {
+            content: '→'; /* Default arrow */
+            color: var(--color-sky-blue);
+            position: absolute;
+            left: -10px;
+            font-weight: bold;
+        }
+
+        .about-section ul li:first-child::before { content: '✓'; } /* Checkmark for first item */
+        .manifesto-section .core-principles ul li:first-child::before { content: '✓'; } /* Checkmark for first item in manifesto */
+        .manifesto-section .core-principles ul li:nth-child(4) ul li::before { content: '✦'; } /* Star for 4th principle */
+
+        .different-section ul li::before {
+            content: '✅'; /* Using unicode emoji directly */
+            margin-right: 10px;
+            font-size: 1.2em; /* Adjust emoji size */
+        }
+        .different-section ul li {
+            list-style: none; /* Remove default list bullet */
+            padding-left: 0; /* Remove default padding for bullet */
+        }
+
+
+        /* Header */
+        .header {
+            background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent dark charcoal */
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--color-sky-blue);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            padding-left: 0;
+        }
+
+        .nav-menu ul li {
+            margin-left: 30px;
+        }
+
+        .nav-menu ul li a {
+            color: var(--color-white);
+            font-weight: 600;
+            font-size: 1.1em;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--color-subtle-gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Hero.jpg'); /* Hero.jpg */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px; /* Add padding for smaller screens */
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: var(--color-white);
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content h2 {
+            color: var(--color-sky-blue);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content h3 {
+            color: var(--color-white);
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-content h4 {
+            color: var(--color-subtle-gold);
+            font-size: 1.5em;
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+
+        /* Image Display Styles */
+        .section-image {
+            max-width: 100%; /* Ensure image fits within its container */
+            height: auto;
+            border-radius: 8px; /* Slightly rounded corners for images */
+            margin-top: 30px; /* Space above the image */
+            margin-bottom: 30px; /* Space below the image */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            display: block; /* Ensures it takes up full width and allows margin auto */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-white);
+            padding-top: 100px;
+        }
+
+        .about-section h3 {
+            color: var(--color-sky-blue);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .about-section p {
+            text-align: justify;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section ul {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px; /* Adjust for checkmark/bullet */
+        }
+
+        .about-section ul li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .about-section .quote {
+            font-style: italic;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            color: var(--color-medium-gray);
+        }
+
+        .about-section .quote-author {
+            font-weight: 600;
+            text-align: center;
+            color: var(--color-sky-blue);
+            margin-bottom: 0;
+        }
+
+        /* Manifesto Section */
+        .manifesto-section {
+            background-color: var(--color-white); /* Lighter background for contrast */
+            color: var(--color-dark-charcoal);
+            border-top: 5px solid var(--color-sky-blue); /* Separator line */
+        }
+
+        .manifesto-section h2 {
+            color: var(--color-dark-charcoal); /* Titles dark on light background */
+        }
+
+        .manifesto-section h3, .manifesto-section h4 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-section .preamble-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-section .preamble-text strong {
+            color: var(--color-sky-blue);
+        }
+
+        .core-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .principle-item {
+            background-color: var(--color-light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-item h4 {
+            color: var(--color-sky-blue);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .principle-item ul {
+            padding-left: 20px;
+        }
+
+        .principle-item ul li {
+            font-size: 1.05em;
+            margin-bottom: 5px;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px dashed var(--color-medium-gray);
+            padding-top: 40px;
+        }
+
+        .manifesto-cta h3 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta ul {
+            display: inline-block; /* To center the list items */
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .manifesto-cta ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta .quote-author {
+            color: var(--color-subtle-gold);
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .timestamp {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+        }
+
+        .timestamp a {
+            color: var(--color-sky-blue);
+            font-weight: 600;
+        }
+
+
+        /* What Makes SYMURGH Different Section */
+        .different-section {
+            background-color: var(--color-dark-charcoal);
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .different-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .different-section ul li {
+            background-color: #2a2a2a; /* Slightly lighter dark background for items */
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--color-white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left; /* Align text within list item */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align icon and text */
+        }
+
+        /* Tokenomics Section */
+        .tokenomics-section {
+            background-color: var(--color-white);
+            color: var(--color-dark-charcoal);
+            border-top: 5px solid var(--color-sky-blue);
+        }
+
+        .tokenomics-section h2 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .tokenomics-section .subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            color: var(--color-subtle-gold);
+            margin-bottom: 50px;
+        }
+
+        .tokenomics-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .tokenomics-details .detail-item {
+            background-color: var(--color-light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tokenomics-details .detail-item h4 {
+            color: var(--color-dark-charcoal);
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .tokenomics-details .detail-item p {
+            color: var(--color-dark-charcoal);
+            font-size: 1.05em;
+        }
+
+        .tokenomics-details .detail-item code {
+            background-color: var(--color-medium-gray);
+            color: var(--color-white);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-all; /* Ensures long addresses wrap */
+        }
+
+        /* Join the Movement Section */
+        .join-section {
+            background-color: var(--color-dark-charcoal);
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .join-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .button-main {
+            display: inline-block;
+            background-color: var(--color-sky-blue);
+            color: var(--color-dark-charcoal);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-main:hover {
+            background-color: var(--color-subtle-gold);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .button-link {
+            display: inline-block;
+            color: var(--color-sky-blue);
+            border: 2px solid var(--color-sky-blue);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button-link:hover {
+            background-color: var(--color-sky-blue);
+            color: var(--color-dark-charcoal);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-icons img:hover {
+            transform: translateY(-5px);
+        }
+
+
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: var(--color-medium-gray);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .nav-menu ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu ul li {
+                margin: 5px 15px;
+            }
+
+            h1 {
+                font-size: 2.8em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8em;
+            }
+            .hero-content h3 {
+                font-size: 1.4em;
+            }
+            .hero-content h4 {
+                font-size: 1.2em;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .core-principles, .tokenomics-details {
+                grid-template-columns: 1fr;
+            }
+
+            .button-main {
+                padding: 12px 25px;
+                font-size: 1em;
+                margin: 8px;
+            }
+
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .nav-menu ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">SYMURGH</div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#manifesto">Manifesto</a></li>
+                    <li><a href="#different">Why SYMURGH?</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#join">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Born from conflict, to end it.</h1>
+            <h2>The first blockchain project for peace. Limitless life.</h2>
+            <h3>The First Anti-War Meme Coin in Crypto.</h3>
+            <h4>Not for Pump. Not for Profit. Only for Peace.</h4>
+        </div>
+    </section>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2>The First Anti-War Crypto Movement</h2>
+            <h3>Born from Myth. Built for Peace. Powered by Chain.</h3>
+            <p>In Persian mythology, <strong>Simurgh</strong> is a majestic, immortal bird — the healer of nations and the awakener of wisdom. When the world falls into chaos, Simurgh rises from the ashes to guide humanity toward unity.</p>
+            <p>Today, that myth takes flight on the blockchain.</p>
+            <p>As an Iranian — heir to one of the world’s oldest civilizations and the Persian Empire that once united half of Asia — I’ve seen enough to say this with certainty: **War is a lie.**</p>
+            <p>It kills the innocent. It forces good people into impossible choices. Whether in Iran, Ukraine, or Palestine — it leaves only grief.</p>
+            <p>That’s why SYMURGH was born.<br>
+            Not just as a token — but as a **movement**.<br>
+            A decentralized cry for **peace without borders**, for a future without flags, for resistance without violence.</p>
+            <p>We don’t need more weapons.<br>We need **a new world**.<br>And we’ll build it — **together**.</p>
+
+            <img src="symurgh.jpg" alt="symurgh.jpg" class="section-image">
+
+            <h3>From Cyrus to Crypto</h3>
+            <p>In 539 BC, **Cyrus the Great** issued the world’s first human rights charter in Persia. He called for religious freedom, equality, and respect for all peoples — values buried under centuries of conflict.</p>
+            <p>Today, from the same land, a new declaration rises.<br>
+            Not written on stone — but sealed forever on-chain.</p>
+            <p>Just as Cyrus etched freedom into history, **SYMURGH** etches peace into the blockchain:<br>
+            – Uncensorable<br>
+            – Immutable<br>
+            – Borderless</p>
+            <p>This is not a pump.<br>This is not a trend.<br>This is **Web3’s stand for peace**.</p>
+        </div>
+    </section>
+
+    <section id="manifesto" class="manifesto-section section-padding">
+        <div class="container">
+            <h2>SYMURGH MANIFESTO</h2>
+
+            <img src="manifesto.jpg" alt="manifesto.jpg" class="section-image">
+
+            <p class="preamble-text">We believe in a world where **peace is not just an ideal, but a blockchain-secured reality.**</p>
+            <div class="core-principles">
+                <div class="principle-item">
+                    <h4>1. Decentralized Peace</h4>
+                    <p>Peace should not be dictated by governments or corporations. SYMURGH embodies true decentralization, empowering individuals to collectively build a peaceful future. No central authority, no single point of failure.</p>
+                </div>
+                <div class="principle-item">
+                    <h4>2. Transparency & Immutability</h4>
+                    <p>Every transaction, every action within the SYMURGH ecosystem is transparent and immutable on the blockchain. This ensures trust, prevents corruption, and holds everyone accountable for their contributions to peace.</p>
+                </div>
+                <div class="principle-item">
+                    <h4>3. Education & Awareness</h4>
+                    <p>We commit to using our platform and resources to educate the world about the true costs of war and the benefits of global unity. Through art, media, and community initiatives, we will spread a message of hope.</p>
+                </div>
+                <div class="principle-item">
+                    <h4>4. Global Solidarity</h4>
+                    <p>War knows no borders, and neither should peace. SYMURGH fosters a global community united by the shared goal of ending conflict. We stand with all victims of war, regardless of nationality or belief.</p>
+                    <ul>
+                        <li>Support for war-torn regions.</li>
+                        <li>Humanitarian aid initiatives.</li>
+                        <li>Global peace advocacy.</li>
+                        <li>Creating safe spaces for dialogue.</li>
+                    </ul>
+                </div>
+                <div class="principle-item">
+                    <h4>5. Empowerment Through Crypto</h4>
+                    <p>By leveraging blockchain technology, we provide a new pathway for individuals to contribute to peace. Our token facilitates direct, secure, and transparent funding for anti-war initiatives and humanitarian efforts.</p>
+                </div>
+                <div class="principle-item">
+                    <h4>6. Art & Culture as Resistance</h4>
+                    <p>We believe in the power of art, music, and culture to transcend boundaries and inspire change. SYMURGH will support artists and creators who use their craft to promote peace and challenge the narratives of conflict.</p>
+                </div>
+            </div>
+            <div class="manifesto-cta">
+                <h3>This is not just a cryptocurrency; it's a commitment.</h3>
+                <ul>
+                    <li>It's a digital protest against the machinery of war.</li>
+                    <li>It's an investment in a future where empathy triumphs over ideology.</li>
+                    <li>It's the quiet revolution of consciousness, secured by code.</li>
+                </ul>
+                <p class="quote-author">— The SYMURGH Community</p>
+            </div>
+            <p class="timestamp">Manifesto last updated: <a href="#timestamp-proof">June 18, 2025</a></p>
+        </div>
+    </section>
+
+    <section id="different" class="different-section section-padding">
+        <div class="container">
+            <h2>What Makes SYMURGH Different?</h2>
+            <p>SYMURGH stands apart from other crypto projects. We're not just another token; we're a **movement with a purpose**.</p>
+            <img src="why.jpg" alt="why.jpg" class="section-image">
+
+            <ul>
+                <li>✅ **Anti-War at Core:** Our primary mission is to fight against war and promote global peace. Every action, every decision, revolves around this core value.</li>
+                <li>✅ **Community-Driven:** We are building a truly decentralized movement where the community holds the power and shapes the future.</li>
+                <li>✅ **Real-World Impact:** We aim to support humanitarian aid, peace education, and advocacy efforts in war-torn regions, making a tangible difference.</li>
+                <li>✅ **Beyond Speculation:** While we are a crypto project, our focus is not solely on financial gains. We prioritize our mission over short-term market fluctuations.</li>
+                <li>✅ **Transparency:** All operations, funds, and initiatives will be transparently recorded on the blockchain, fostering trust and accountability.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics-section section-padding">
+        <div class="container">
+            <h2>TOKENOMICS</h2>
+            <p class="subtitle">A structure built for sustainability and impact.</p>
+            <img src="tokenomic.jpg" alt="tokenomic.jpg" class="section-image">
+
+            <div class="tokenomics-details">
+                <div class="detail-item">
+                    <h4>Total Supply</h4>
+                    <p>1,000,000,000,000 SYMURGH Tokens</p>
+                    <p>This fixed supply ensures scarcity and long-term value for the movement.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Fair Launch</h4>
+                    <p>No pre-sale, no team tokens, no private allocations. SYMURGH will be launched fairly, allowing everyone equal opportunity to join the movement.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Liquidity Locked</h4>
+                    <p>A significant portion of the initial liquidity will be locked indefinitely, preventing rug pulls and ensuring stability.</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Charity & Development Wallet</h4>
+                    <p>A small percentage of each transaction will be allocated to a dedicated wallet for humanitarian aid, peace initiatives, and future development of the SYMURGH ecosystem.</p>
+                    <p><strong>Example Allocation:</strong></p>
+                    <ul>
+                        <li>2% to Humanitarian Aid</li>
+                        <li>1% to Peace Education & Advocacy</li>
+                        <li>1% to Ecosystem Development</li>
+                    </ul>
+                </div>
+                <div class="detail-item">
+                    <h4>Anti-Whale Mechanism (Optional, if applicable)</h4>
+                    <p>To prevent market manipulation, a maximum transaction limit might be implemented. (Details to be announced).</p>
+                </div>
+                <div class="detail-item">
+                    <h4>Burn Mechanism (Optional, if applicable)</h4>
+                    <p>A portion of transaction fees may be burned over time, gradually reducing supply and increasing scarcity. (Details to be announced).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="join-section section-padding">
+        <div class="container">
+            <h2>JOIN THE MOVEMENT</h2>
+            <p>Be a part of something bigger. Join SYMURGH and let's build a future of peace, together.</p>
+
+            <img src="join.jpg" alt="join.jpg" class="section-image">
+            
+            <div class="cta-buttons">
+                <a href="#" class="button-main">Buy SYMURGH (Link Soon)</a>
+                <a href="#" class="button-main">Join Telegram</a>
+            </div>
+
+            <p>Follow us on social media for updates and community discussions:</p>
+            <div class="social-icons">
+                <a href="#"><img src="telegram.png" alt="Telegram"></a>
+                <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="discord.png" alt="Discord"></a>
+            </div>
+
+            <a href="#" class="button-link">Read Whitepaper (Coming Soon)</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SYMURGH. All rights reserved. For Peace. For Humanity.</p>
+        </div>
+    </footer>
+
+    </body>
+</html>
