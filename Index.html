@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEAC3: The Anti-War Crypto Movement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Styles */
+        :root {
+            --color-dark-charcoal: #1A1A1A;
+            --color-white: #FFFFFF;
+            --color-sky-blue: #87CEEB;
+            --color-subtle-gold: #DAA520; /* More yellow-gold, adjusted for better contrast */
+            --color-light-gray: #F0F0F0;
+            --color-medium-gray: #B0B0B0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* scroll-behavior: smooth; // This would require JavaScript if not natively supported by browser for anchor links */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-white); /* Default text color for dark background */
+            background-color: var(--color-dark-charcoal);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-sky-blue); /* Section titles in accent color */
+        }
+
+        h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: var(--color-sky-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-subtle-gold);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px; /* Adjust as needed for specific list styles */
+        }
+
+        /* Specific list styles for checkmarks and arrows */
+        .about-section ul li::before, .manifesto-section ul li::before {
+            content: '→'; /* Default arrow */
+            color: var(--color-sky-blue);
+            position: absolute;
+            left: -10px;
+            font-weight: bold;
+        }
+
+        .about-section ul li:first-child::before { content: '✓'; } /* Checkmark for first item */
+        .manifesto-section .core-principles ul li:first-child::before { content: '✓'; } /* Checkmark for first item in manifesto */
+        .manifesto-section .core-principles ul li:nth-child(4) ul li::before { content: '✦'; } /* Star for 4th principle */
+
+        .different-section ul li::before {
+            content: '✅'; /* Using unicode emoji directly */
+            margin-right: 10px;
+            font-size: 1.2em; /* Adjust emoji size */
+        }
+        .different-section ul li {
+            list-style: none; /* Remove default list bullet */
+            padding-left: 0; /* Remove default padding for bullet */
+        }
+
+
+        /* Header */
+        .header {
+            background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent dark charcoal */
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--color-sky-blue);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            padding-left: 0;
+        }
+
+        .nav-menu ul li {
+            margin-left: 30px;
+        }
+
+        .nav-menu ul li a {
+            color: var(--color-white);
+            font-weight: 600;
+            font-size: 1.1em;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--color-subtle-gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero.jpg'); /* hero.jpg */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px; /* Add padding for smaller screens */
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            color: var(--color-white);
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content h2 {
+            color: var(--color-sky-blue);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content h3 {
+            color: var(--color-white);
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-content h4 {
+            color: var(--color-subtle-gold);
+            font-size: 1.5em;
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--color-dark-charcoal);
+            color: var(--color-white);
+            padding-top: 100px;
+        }
+
+        .about-section h3 {
+            color: var(--color-sky-blue);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .about-section p {
+            text-align: justify;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section ul {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px; /* Adjust for checkmark/bullet */
+        }
+
+        .about-section ul li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .about-section .quote {
+            font-style: italic;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            color: var(--color-medium-gray);
+        }
+
+        .about-section .quote-author {
+            font-weight: 600;
+            text-align: center;
+            color: var(--color-sky-blue);
+            margin-bottom: 0;
+        }
+
+
+        /* Manifesto Section */
+        .manifesto-section {
+            background-color: var(--color-white); /* Lighter background for contrast */
+            color: var(--color-dark-charcoal);
+            border-top: 5px solid var(--color-sky-blue); /* Separator line */
+        }
+
+        .manifesto-section h2 {
+            color: var(--color-dark-charcoal); /* Titles dark on light background */
+        }
+
+        .manifesto-section h3, .manifesto-section h4 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-section .preamble-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-section .preamble-text strong {
+            color: var(--color-sky-blue);
+        }
+
+        .core-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .principle-item {
+            background-color: var(--color-light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-item h4 {
+            color: var(--color-sky-blue);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .principle-item ul {
+            padding-left: 20px;
+        }
+
+        .principle-item ul li {
+            font-size: 1.05em;
+            margin-bottom: 5px;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px dashed var(--color-medium-gray);
+            padding-top: 40px;
+        }
+
+        .manifesto-cta h3 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta ul {
+            display: inline-block; /* To center the list items */
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .manifesto-cta ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: var(--color-dark-charcoal);
+        }
+
+        .manifesto-cta .quote-author {
+            color: var(--color-subtle-gold);
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .timestamp {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-medium-gray);
+        }
+
+        .timestamp a {
+            color: var(--color-sky-blue);
+            font-weight: 600;
+        }
+
+
+        /* What Makes PEAC3 Different Section */
+        .different-section {
+            background-color: var(--color-dark-charcoal);
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .different-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .different-section ul li {
+            background-color: #2a2a2a; /* Slightly lighter dark background for items */
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--color-white);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left; /* Align text within list item */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align icon and text */
+        }
+
+        /* Tokenomics Section */
+        .tokenomics-section {
+            background-color: var(--color-white);
+            color: var(--color-dark-charcoal);
+            border-top: 5px solid var(--color-sky-blue);
+        }
+
+        .tokenomics-section h2 {
+            color: var(--color-dark-charcoal);
+        }
+
+        .tokenomics-section .subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            color: var(--color-subtle-gold);
+            margin-bottom: 50px;
+        }
+
+        .tokenomics-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .tokenomics-details .detail-item {
+            background-color: var(--color-light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tokenomics-details .detail-item h4 {
+            color: var(--color-dark-charcoal);
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .tokenomics-details .detail-item p {
+            color: var(--color-dark-charcoal);
+            font-size: 1.05em;
+        }
+
+        .tokenomics-details .detail-item code {
+            background-color: var(--color-medium-gray);
+            color: var(--color-white);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-all; /* Ensures long addresses wrap */
+        }
+
+        /* Join the Movement Section */
+        .join-section {
+            background-color: var(--color-dark-charcoal);
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .join-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .button-main {
+            display: inline-block;
+            background-color: var(--color-sky-blue);
+            color: var(--color-dark-charcoal);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-main:hover {
+            background-color: var(--color-subtle-gold);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .button-link {
+            display: inline-block;
+            color: var(--color-sky-blue);
+            border: 2px solid var(--color-sky-blue);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button-link:hover {
+            background-color: var(--color-sky-blue);
+            color: var(--color-dark-charcoal);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-icons img:hover {
+            transform: translateY(-5px);
+        }
+
+
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: var(--color-medium-gray);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .nav-menu ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu ul li {
+                margin: 5px 15px;
+            }
+
+            h1 {
+                font-size: 2.8em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8em;
+            }
+            .hero-content h3 {
+                font-size: 1.4em;
+            }
+            .hero-content h4 {
+                font-size: 1.2em;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .core-principles, .tokenomics-details {
+                grid-template-columns: 1fr;
+            }
+
+            .button-main {
+                padding: 12px 25px;
+                font-size: 1em;
+                margin: 8px;
+            }
+
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .nav-menu ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">PEAC3</div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#manifesto">Manifesto</a></li>
+                    <li><a href="#different">Why PEAC3?</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#join">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Born from conflict, to end it.</h1>
+            <h2>The first blockchain project for peace. Limitless life.</h2>
+            <h3>The First Anti-War Meme Coin in Crypto.</h3>
+            <h4>Not for Pump. Not for Profit. Only for Peace.</h4>
+        </div>
+    </section>
+
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2>The First Anti-War Crypto Movement</h2>
+            <h3>Born from War, Built on Blockchain</h3>
+            <p>On <strong>[Date, e.g., 2024-04-14]</strong>, explosions rocked my city. Just 100 meters from my home, a building collapsed - with neighbors inside. That day, as an Iranian developer, I realized: while politicians send missiles, we can send messages.</p>
+
+            <h3>From Cyrus to Crypto</h3>
+            <p>In 539 BC, Cyrus the Great established history's first human rights charter in Persia. Today, from that same land, we're writing a new declaration - not on clay, but on the immutable blockchain.</p>
+
+            <h3>Our Global Mission</h3>
+            <p>PEAC3 is crypto's first true anti-war movement. We stand for:</p>
+            <ul>
+                <li>The **Ukrainian child** hiding in bomb shelters</li>
+                <li>The **Israeli soldier** questioning orders</li>
+                <li>Every civilian caught between borders and bullets</li>
+            </ul>
+
+            <h3>This Is Not an Investment</h3>
+            <p>$PEAC3 is a digital artifact of resistance. Each token represents:</p>
+            <ul>
+                <li>✓ A vote against all war</li>
+                <li>✓ A voice for the voiceless</li>
+                <li>✓ A permanent record of your stand</li>
+            </ul>
+
+            <h3>Why Blockchain?</h3>
+            <p>Because peace deserves:</p>
+            <ul>
+                <li>✔ Immortality (on-chain forever)</li>
+                <li>✔ Decentralization (no government can censor it)</li>
+                <li>✔ Global unity (beyond flags and religions)</li>
+            </ul>
+
+            <p class="quote">This isn't about profits - it's about proof. Proof that when humanity unites on-chain, we're stronger than any army.</p>
+            <p class="quote-author">"The true measure of Web3 isn't market caps - it's lives saved."</p>
+        </div>
+    </section>
+
+    <section id="manifesto" class="manifesto-section section-padding">
+        <div class="container">
+            <h2>PEAC3 MANIFESTO</h2>
+            <h3>"When Blockchain Meets Humanity"</h3>
+            <p class="preamble-text">We, the people of crypto, declare that war is obsolete.<br>From the ruins of conflict, we build a new truth: <strong>blockchain is humanity’s immune system against violence</strong>.</p>
+
+            <div class="core-principles">
+                <h3>Core Principles</h3>
+
+                <div class="principle-item">
+                    <h4>1. War Belongs in Museums</h4>
+                    <p>The blockchain is our permanent record:</p>
+                    <ul>
+                        <li>✓ Every war crime</li>
+                        <li>✓ Every life lost</li>
+                        <li>✓ Every act of resistance</li>
+                    </ul>
+                    <p>$PEAC3 tokens are digital memorials. Hold them to say: *"Never again."*</p>
+                </div>
+
+                <div class="principle-item">
+                    <h4>2. Your Wallet = Your Vote</h4>
+                    <ul>
+                        <li>1 $PEAC3 = 1 vote against all wars</li>
+                        <li>No governments. No borders. Just code-enforced solidarity.</li>
+                    </ul>
+                </div>
+
+                <div class="principle-item">
+                    <h4>3. We Take Sides – With Civilians</h4>
+                    <p>Not Israel. Not Iran. Not Russia. Not Ukraine.</p>
+                    <p><strong>We side with:</strong></p>
+                    <ul>
+                        <li>→ The child hiding in basements</li>
+                        <li>→ The soldier forced to fight</li>
+                        <li>→ The doctor patching wounds</li>
+                    </ul>
+                </div>
+
+                <div class="principle-item">
+                    <h4>4. Technology’s Highest Purpose</h4>
+                    <p>Web3 was meant to free us. We repurpose it:</p>
+                    <ul>
+                        <li>✦ Bombs → Bytes</li>
+                        <li>✦ Borders → Blockchains</li>
+                        <li>✦ Propaganda → Proof-of-Peace</li>
+                    </ul>
+                </div>
+
+                <div class="principle-item">
+                    <h4>5. A Token Without Value</h4>
+                    <p>The day $PEAC3 hits $0 is our victory – because war has ended.</p>
+                </div>
+            </div>
+
+            <div class="manifesto-cta">
+                <h3>Call to Action</h3>
+                <p>Sign this manifesto by:</p>
+                <ul>
+                    <li>1. <strong>Holding $PEAC3</strong> (on-chain record)</li>
+                    <li>2. <strong>Sharing this text</strong> (#PEAC3Manifesto)</li>
+                    <li>3. <strong>Rejecting war profiteers</strong></li>
+                </ul>
+                <p class="quote-author">"First they ignore us. Then they laugh at us. Then we outlive them."</p>
+            </div>
+
+            <div class="timestamp">
+                <p><strong>Timestamped & Immutable</strong></p>
+                <p>This manifesto was permanently recorded on <strong>[Blockchain Name]</strong> at block <strong>[#]</strong> on <strong>[Date]</strong>.</p>
+                <p><a href="[TRANSACTION LINK]" target="_blank" class="button-link">VIEW ON BLOCKCHAIN</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="different" class="different-section section-padding">
+        <div class="container">
+            <h2>What Makes PEAC3 Different?</h2>
+            <ul>
+                <li>✅ Launched from inside a real war zone</li>
+                <li>✅ 100% community</li>
+                <li>✅ No presale, no VC</li>
+                <li>✅ Just buy & hold to send a message</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics-section section-padding">
+        <div class="container">
+            <h2>PEAC3 Tokenomics: A Symbol of Unity</h2>
+            <h3 class="subtitle">No VCs. No Private Sales. Just Pure Peace.</h3>
+
+            <div class="tokenomics-details">
+                <div class="detail-item">
+                    <h4>1. Token Details:</h4>
+                    <p><strong>Token Name:</strong> Peace Token</p>
+                    <p><strong>Token Symbol:</strong> $PEAC3</p>
+                    <p><strong>Blockchain:</strong> Solana</p>
+                    <p><strong>Standard:</strong> SPL Token</p>
+                </div>
+
+                <div class="detail-item">
+                    <h4>2. Supply & Distribution:</h4>
+                    <p><strong>Total Supply:</strong> 1,000,000,000 $PEAC3 (One Billion PEAC3)</p>
+                    <p><strong>Fair Launch on pump.fun:</strong> PEAC3 is launched on **pump.fun** using a **Bonding Curve mechanism**, ensuring a truly fair and community-driven start for everyone.</p>
+                    <p><strong>100% Liquidity Burned:</strong> All initial liquidity generated will be permanently burned, safeguarding community assets and preventing rug pulls.</p>
+                </div>
+
+                <div class="detail-item">
+                    <h4>3. Smart Contract & Verification:</h4>
+                    <p><strong>Contract Address:</strong> <code>[Your Solana Smart Contract Address Here - Once deployed]</code></p>
+                    <p><a href="[Your Solscan Link]" target="_blank" class="button-link">Verify on Solscan</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="join-section section-padding">
+        <div class="container">
+            <h2>Join the Movement</h2>
+            <p>You don’t need to buy $10K. Even $5 shows you believe in peace.</p>
+            <p>Post the memes. Share the vision. HODL for humanity.</p>
+            
+            <div class="cta-buttons">
+                <a href="[Your Discord/Telegram/X Community Link]" target="_blank" class="button-main">Join Our Community</a>
+                <a href="[Your pump.fun Buy Link]" target="_blank" class="button-main">Buy $PEAC3 on pump.fun</a>
+            </div>
+
+            <div class="social-icons">
+                <a href="[Your X/Twitter Link]" target="_blank"><img src="placeholder_x.png" alt="X (Twitter)"></a>
+                <a href="[Your Telegram Link]" target="_blank"><img src="placeholder_telegram.png" alt="Telegram"></a>
+                </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PEAC3. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
